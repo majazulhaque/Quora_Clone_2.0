@@ -126,7 +126,7 @@ function Post({ post }) {
             </div>
           </Modal>
         </div>
-        {post?.questionUrl !== "" && <img src={post?.questionUrl} alt="Url" />}
+        {post?.questionUrl !== "" && <img style={{width:"95%",alignSelf:"center"}} src={post?.questionUrl} alt="Url" />}
       </div>
       <div className="post__footer">
         <div className="post__footerAction">
@@ -161,12 +161,13 @@ function Post({ post }) {
       >
         {post?.allAnswers?.map((_a,index) => (
           <>
-            <div
+            <div key={index}
               style={{
                 display: "flex",
                 flexDirection: "column",
                 width: "100%",
-                padding: "100px 5px",
+                minHeight:"10vh",
+                padding: "10px 5px",
                 borderTop: "1px solid lightgray",
               }}
               className="post-answer-container"
@@ -186,11 +187,11 @@ function Post({ post }) {
                 <div style={{ margin: "0px 10px" }} className="post-info">
                   <p>{_a?.user?.userName}</p>
                   <span>
-                    <LastSeen date={_a?.createdAt} key={index} />
+                    <LastSeen date={_a?.createdAt} />
                   </span>
                 </div>
               </div>
-              <div className="post-answer">{ReactHtmlParser(_a?.answer)}</div>
+              <div className="post-answer" style={{marginLeft:"10px"}}>{ReactHtmlParser(_a?.answer)}</div>
             </div>
           </>
         ))}

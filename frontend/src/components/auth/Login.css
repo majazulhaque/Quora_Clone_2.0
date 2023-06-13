@@ -1,4 +1,219 @@
-.login-container {
+  
+  body {
+    font-family: inherit;
+  }
+  
+  .main-container {
+    background-image: url("https://qph.cf2.quoracdn.net/main-qimg-b5faebde65208b4e09af0a85b3893ddd-lq");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .Auth-container {
+    width: 43rem;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 5px;
+  }
+  
+  .heading-container {
+    text-align: center;
+  }
+  
+  .heading-container h1 {
+    font-size: 3.7rem;
+    color: rgb(197, 24, 24);
+    padding: 0.8rem;
+    padding-top: 2rem;
+  }
+  .heading-container >img{
+    padding: 0.8rem;
+    padding-top: 2rem;
+    width: 14.5rem;
+  }
+  
+  .heading-container p {
+    padding-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #6b6565;
+  }
+  
+  .Auth-main-container {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    border-bottom: 1px solid #dee0e1;
+  }
+  
+  .social-container {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    /* height: 20rem; */
+    border-right: 1px solid #dee0e1;
+    padding-right: 1rem;
+  }
+  
+  .social-container > p {
+    font-size: 0.9rem;
+    padding-bottom: 1rem;
+    color: #7f7c7c;
+  }
+  
+  .social-container > p span {
+    color: rgb(104, 104, 247);
+  }
+  .social-container >p span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .google-div,
+  .fb-div {
+    border: 1px solid #dee0e1;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+  }
+  
+  .fb-div {
+    margin-top: 10px;
+  }
+  .fb-div:hover{
+    background-color: #f1f2f2;
+    cursor: pointer;
+  }
+  .google-div:hover{
+    background-color: #f1f2f2;
+    cursor: pointer;
+  }
+  .fb-div > img{
+    width: 1.6rem;
+    margin-right: 1rem;
+  }
+  .google-div > img{
+    width: 1.5rem;
+    margin-right: 1rem;
+  }
+  .sign-up-email{
+    text-align: center;
+    margin-top: 2rem;
+    line-height: normal;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.7rem;
+    font-size: 0.85rem;
+    color: #6b6f6f;
+
+  }
+  .sign-up-email:hover{
+    background-color: #f1f2f2;
+    border-radius: 30px;
+    cursor:pointer;
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 0.5rem;  
+  }
+  .login-container > p{
+    width: 20rem;
+    margin: 0rem 0rem 0.5rem 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border-bottom: 1px solid #dee0e1;
+  }
+  form > label{
+    margin: 0.5rem 0rem 1rem 1rem;
+    font-weight: bold;
+  }
+  form > input{
+    width: 20rem;
+    padding: 0.6rem;
+    margin: 0.5rem 0rem 1rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #dee0e1;
+    color: #a2a6a6;
+    border-radius: 5px;
+  }
+  form > input::placeholder {
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.2); /* Set the desired opacity value */
+  }
+  form > input:hover{
+    border: 1px solid rgb(43, 152, 241);
+  }
+  form input:focus{
+    border: 1px solid rgb(43, 152, 241);
+    outline: none;
+  }
+  .forgot-pass{
+    width: 20rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0rem 1rem 1rem;
+    justify-content: space-between;
+    color: #a2a6a6;
+    font-size: 0.9rem;
+  }
+  .forgot-pass > button{
+    padding: 0.65rem 1.1rem;
+    background-color: #4db3ee;
+    color: white;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 40px;
+    border: none;
+
+  }
+  .forgot-pass > span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .language{
+    text-align: center;
+    padding: 1rem 0rem;
+  }
+  .language > span {
+    color: rgb(7, 7, 143);
+    
+  }
+  .language span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .footer {
+    text-align: center;
+    color: #7f7c7c;
+    background-color: #f1f2f2;
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+  .footer >span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+
+
+
+
+
+
+
+/* .login-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,4 +245,4 @@
     letter-spacing: 1.1px;
     font-family: monospace;
     cursor: pointer;
-  }
+  } */
