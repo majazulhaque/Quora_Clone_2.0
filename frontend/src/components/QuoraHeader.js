@@ -16,12 +16,19 @@ import "./css/QuoraHeader.css";
 import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import axios from "axios";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
+import { logout, selectUser } from "../feature/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function QuoraHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputUrl, setInputUrl] = useState("");
   const [question, setQuestion] = useState("");
   const Closes = <Close />;
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
 
   const handleSubmit = async () =>{
     if(question !== ""){
@@ -43,6 +50,19 @@ export default function QuoraHeader() {
         alert("Error in adding question")
         
       });
+    }
+  };
+
+  const handleLogout = () => {
+    if (window.confirm("Are you sure to logout ?")) {
+      signOut(auth)
+        .then(() => {
+          dispatch(logout());
+          console.log("Logged out");
+        })
+        .catch(() => {
+          console.log("error in logout");
+        });
     }
   };
 
@@ -78,7 +98,7 @@ export default function QuoraHeader() {
           <input type="text" placeholder="Search question" />
         </div>
         <div className="qHeader__Rem">
-          <Avatar />
+          <span onClick={handleLogout}><Avatar src={user?.photo} /></span>
         </div>
         <Button onClick={() => setIsModalOpen(true)}>Add Question</Button>
         <Modal
