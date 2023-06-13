@@ -3,7 +3,8 @@ module.exports.create = async function(req,res){
     try {
         let question = await Question.create({
             questionName:req.body.questionName,
-            questionUrl:req.body.questionUrl
+            questionUrl:req.body.questionUrl,
+            user:req.body.user
         });
         return res.status(201).send({
             status:true,

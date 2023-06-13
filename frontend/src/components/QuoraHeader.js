@@ -39,7 +39,8 @@ export default function QuoraHeader() {
       };
       const body = {
         questionName:question,
-        questionUrl:inputUrl
+        questionUrl:inputUrl,
+        user:user
       };
       await axios.post('/api/question/create',body,config).then((res)=>{
         console.log(res.data)
@@ -52,6 +53,7 @@ export default function QuoraHeader() {
       });
     }
   };
+
 
   const handleLogout = () => {
     if (window.confirm("Are you sure to logout ?")) {
@@ -119,7 +121,7 @@ export default function QuoraHeader() {
             <h5>Share Link</h5>
           </div>
           <div className="modal__info">
-            <Avatar className="avatar" />
+            <Avatar  src={user?.photo} className="avatar" />
             <div className="modal__scope">
               <PeopleAltOutlined />
               <p>Public</p>

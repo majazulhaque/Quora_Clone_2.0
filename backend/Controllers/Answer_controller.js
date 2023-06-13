@@ -3,7 +3,8 @@ module.exports.createAnswer = async function(req,res){
     try {
         let answer = await Answer.create({
             answer: req.body.answer,
-            questionId: req.body.questionId
+            questionId: req.body.questionId,
+            user:req.body.user
         });
         return res.status(201).send({
             status:true,

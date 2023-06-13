@@ -19,6 +19,9 @@ import "react-quill/dist/quill.snow.css";
 import ReactTimeAgo from "react-time-ago";
 import axios from "axios";
 import ReactHtmlParser from "html-react-parser";
+import { selectUser } from "../feature/userSlice";
+import { useSelector } from "react-redux";
+
 
 function LastSeen({ date }) {
   return (
@@ -32,6 +35,7 @@ function Post({ post }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [answer, setAnswer] = useState("");
   const Closes = <Close />;
+  const user = useSelector(selectUser);
 
   const handleQuill = (value) => {
     setAnswer(value);
@@ -46,6 +50,7 @@ function Post({ post }) {
       const body = {
         answer: answer,
         questionId: post?._id,
+        user:user
       };
       await axios
         .post("/api/answer/create", body, config)
@@ -64,8 +69,8 @@ function Post({ post }) {
   return (
     <div className="post">
       <div className="post__info">
-        <Avatar />
-        <h4>User Name</h4>
+        <Avatar src={post?.user?.photo}/>
+        <h4>{post?.user?.userName}</h4>
         <small>
           <LastSeen date={post?.createdAt} />
         </small>
@@ -98,7 +103,7 @@ function Post({ post }) {
             <div className="modal__question">
               <h1>{post?.questionName}</h1>
               <p>
-                asked by <span className="name">Username</span> on{" "}
+                asked by <span className="name">{post?.user.userName}</span> on{" "}
                 <span className="name">
                   {new Date(post?.createdAt).toLocaleString()}
                 </span>
@@ -177,9 +182,9 @@ function Post({ post }) {
                 }}
                 className="post-answered"
               >
-                <Avatar />
+                <Avatar src={_a?.user?.photo} />
                 <div style={{ margin: "0px 10px" }} className="post-info">
-                  <p>Username</p>
+                  <p>{_a?.user?.userName}</p>
                   <span>
                     <LastSeen date={_a?.createdAt} key={index} />
                   </span>
