@@ -134,11 +134,11 @@
     font-weight: 700;
     border-bottom: 1px solid #dee0e1;
   }
-  form > label{
+  .login-form > label{
     margin: 0.5rem 0rem 1rem 1rem;
     font-weight: bold;
   }
-  form > input{
+  .login-form  > input{
     width: 20rem;
     padding: 0.6rem;
     margin: 0.5rem 0rem 1rem 1rem;
@@ -147,14 +147,14 @@
     color: #a2a6a6;
     border-radius: 5px;
   }
-  form > input::placeholder {
+  .login-form  > input::placeholder {
     font-weight: bolder;
     color: rgba(0, 0, 0, 0.2); /* Set the desired opacity value */
   }
-  form > input:hover{
+  .login-form  > input:hover{
     border: 1px solid rgb(43, 152, 241);
   }
-  form input:focus{
+  .login-form  input:focus{
     border: 1px solid rgb(43, 152, 241);
     outline: none;
   }
@@ -208,41 +208,77 @@
   
 
 
+/* Modal */
 
+.sign-up-header{
+  margin: 1rem 1rem 0rem 1rem;
+}
 
+.fill-form{
+  display: flex;
+  flex-direction: column;
+}
+.sign-up-form{
+  margin-top: 2rem;
+}
+.sign-up-form > input{
+  width: 95%;
+  padding: 0.8rem;
+  margin: 0rem 0rem 1rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid #dee0e1;
+  color: #a2a6a6;
+  border-radius: 5px;
+}
+.sign-up-form >label{
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0rem 0.5rem 1rem;
+  font-weight: bold;
+}
 
+.sign-up-form  > input::placeholder {
+  font-weight: bolder;
+  color: rgba(0, 0, 0, 0.2); /* Set the desired opacity value */
+}
+.sign-up-form  > input:hover{
+  border: 1px solid rgb(43, 152, 241);
+}
+.sign-up-form  input:focus{
+  border: 1px solid rgb(43, 152, 241);
+  outline: none;
+}
 
-
-/* .login-container {
-    display: flex;
+.sign-up-btn{
+    padding: 0.65rem 1.1rem;
+    background-color: #4db3ee;
+    color: white;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    box-sizing: border-box;
-  }
-  
-  .login-content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .login-content > img {
-    width: 200px;
-    object-fit: contain;
-    margin: 20px;
-  }
-  
-  .login-content > button {
-    padding: 10px;
-    margin: 50px 0px;
-    background-color: #000;
-    color: #fff;
-    outline: none;
+    font-weight: bold;
+    border-radius: 40px;
     border: none;
-    border-radius: 3px;
-    letter-spacing: 1.1px;
-    font-family: monospace;
+    margin-top: 1rem;
+    margin-left: 83%;
     cursor: pointer;
-  } */
+    
+}
+
+.sign-up-content{
+  padding-top: 4rem;
+}
+
+.sign-up-content > p {
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
+  color: #7f7c7c;
+  text-align: center;
+}
+
+.sign-up-content > p span {
+  color: rgb(104, 104, 247);
+}
+.sign-up-content >p span:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
