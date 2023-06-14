@@ -1,9 +1,10 @@
+require ('dotenv');
 const express = require('express');
 const cors = require('cors');
 const path  = require('path');
 const app = express();
 const bodyParser = require('body-parser');
-const PORT = 80;
+const PORT = 8000;
 const db = require('./db');
 const router = require('./routes');
 
@@ -27,7 +28,7 @@ app.use("/api",router);
 
 
 app.use('/uploads',express.static(path.join(__dirname,"/../uploads")));
-app.use(express.static(path.join(__dirname,"/../frontend/build")));
+app.use('/uploads',express.static(path.join(__dirname,"/../frontend/build")));
 
 app.get("*",(req,res)=>{
     try {
