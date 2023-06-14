@@ -1,7 +1,8 @@
 import React from "react";
 import "./Login.css";
-import { signInWithPopup } from "firebase/auth";
+import { getAuth,signInWithPopup, FacebookAuthProvider } from "firebase/auth";
 import { auth, provider } from "../../firebase";
+import {auth1,provider1} from "../../fb";
 
 function Login() {
   const handleSubmit = async () => {
@@ -13,6 +14,31 @@ function Login() {
         console.log(error);
       });
   };
+
+  const handleFacebook = ()=>{
+    const auth = getAuth();
+    signInWithPopup(auth1,provider1).then((result)=>{
+      // The signed-in user info.
+      const user = result.user;
+
+      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      const accessToken = credential.accessToken;
+
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+    }).catch((error)=>{
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = FacebookAuthProvider.credentialFromError(error);
+
+      // ...
+    })
+  }
   return (
     <div className="main-container">
       <div className="Auth-container">
@@ -31,7 +57,7 @@ function Login() {
               <img src="https://img.icons8.com/?size=512&id=17949&format=png" alt="" />
               <p>Continue with Google</p>
             </div>
-            <div className="fb-div">
+            <div onClick={handleFacebook} className="fb-div">
               <img src="https://img.icons8.com/?size=512&id=118497&format=png" alt="" />
               <p>Continue with Facebook</p>
             </div>
@@ -86,17 +112,7 @@ function Login() {
     </div>
 
 
-    // <div className="login-container">
-    //   <div className="login-content">
-    //     <img
-    //       src="https://video-public.canva.com/VAD8lt3jPyI/v/ec7205f25c.gif"
-    //       alt="logo"
-    //     />
-    //     <button onClick={handleSubmit} className="btn-login">
-    //       Continue with Google
-    //     </button>
-    //   </div>
-    // </div>
+    
   );
 }
 
